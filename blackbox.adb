@@ -1,5 +1,6 @@
-WITH Board, Actions, Screen, Windows;
-WITH Ada.Text_IO;
+WITH Types, Board, Actions, Screen, Windows, Stacks, Lists;
+USE  Types, Board, Actions, Screen, Windows;
+WITH Ada.Text_IO; USE Ada.Text_IO;
 
 -- Morgan: maintain master program, write main logic/procedures
 -- Billy: Write Retract, Guess, and Help Procedures
@@ -18,6 +19,11 @@ PROCEDURE BlackBox IS
 	-- Display Menu
 	-- User Input
 =======
+
+	PACKAGE Stack IS NEW Stacks(MoveElement,"<");
+	USE		Stack;
+	PACKAGE List IS NEW Lists(GuessElement,"<");
+	USE		List;
 
 	-- Display Menu - Procedure (Selection : OUT Difficulty) {BlackBox}
 	Procedure DisplayMenu (Selection : OUT Difficulty) IS
