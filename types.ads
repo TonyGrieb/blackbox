@@ -56,6 +56,7 @@ PACKAGE Types IS
 		MoveType			: MoveEnum;
 		CarrotPosition		: CPosition;
 		GuessPosition		: BoxPosition;
+		LaserPosition		: LPosition;
 	END RECORD;
 
 	TYPE GuessElement IS
