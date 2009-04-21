@@ -1,6 +1,7 @@
 GENERIC
 	TYPE WindowType IS PRIVATE;
-	TYPE MoveQueue  IS PRIVATE;
+	TYPE MoveStack  IS PRIVATE;
+	TYPE GuessList  IS PRIVATE;
 PACKAGE Types IS
 
 	TYPE BoardType IS
@@ -19,13 +20,20 @@ PACKAGE Types IS
 			Index : Integer(1..10);
 		END RECORD;
 
+		TYPE LPosition IS
+		RECORD
+			InPosition	: CPosition;
+			OutPosition : CPosition;
+		END RECORD;
+
 	RECORD	-- Board Type
 		Length			: Integer;
 		Box				: ARRAY('A'..'J',1..10) OF Boxes;
 		CarrotPosition	: CPosition;
 		Shots			: Integer;
-		Guesses			: Integer;
+		Guesses			: GuessList;
 		Moves			: MoveStack;
+		LaserPosition	: LPosition;
 	END RECORD;
 
 	TYPE BoxPosition IS
