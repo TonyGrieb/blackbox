@@ -1,5 +1,5 @@
 WITH Types, Board, Actions, Screen, Windows, Stacks, Lists;
-USE  Types, Board, Actions, Screen, Windows, Stacks, Lists;
+USE  Types, Board, Actions, Screen, Windows;
 WITH Ada.Text_IO; USE Ada.Text_IO;
 
 -- Morgan: maintain master program, write main logic/procedures
