@@ -18,8 +18,8 @@
             for Index2 in 'A'..character'val(gameboard.length+64) loop
                x:= 6+(height*(character'pos(Index2)-65))-character'pos(Index2)+64;
                y:= 10+(width*(Index-1))-Index;
-               gameboard.boxes(index2,index).window:=windows.open((x,y),height,width);
-               windows.borders(gameboard.boxes(index2,index).window,'+','|','-');
+               gameboard.box(index2,index).window:=windows.open((x,y),height,width);
+               windows.borders(gameboard.box(index2,index).window,'+','|','-');
             end loop;
          end loop;
          for index in 1..gameboard.length loop
@@ -63,9 +63,10 @@
          Num : integer;
           package Rand_Int is new Ada.Numerics.Discrete_Random(Rand_Range);
          seed : Rand_Int.Generator;
-         mirrors:integer;
+			mirrors:integer;
          dup:integer:=0;
          mirror_array: array (1..30) of integer;
+			mirrors_set: array(1..30) of integer;
       begin --set_mirrors
          Rand_Int.Reset(seed);
          case selection2 is
@@ -93,33 +94,81 @@
       	end loop;
       	for index in 1..mirrors loop
       	for index2 in character range'A'..'J' loop
-      	gameboard.boxes(index2,index).mirror:=false;
+      	gameboard.box(index2,index).mirror:=false;
       	end loop;
       	end loop;
       	for index in 1..mirrors loop
       	if mirror_array(index) <= gameboard.length then
-      	gameboard.boxes('A',mirror_array(index)).mirror:=true;
+      	gameboard.box('A',mirror_array(index)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('A',mirror_array(index)).angle:=true;
+			else
+			gameboard.box('A',mirror_array(index)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*2 then
-      	gameboard.boxes('B',mirror_array(index)-(gameboard.length)).mirror:=true;
+      	gameboard.box('B',mirror_array(index)-(gameboard.length)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('B',mirror_array(index)-(gameboard.length)).angle:=true;
+			else
+			gameboard.box('B',mirror_array(index)-(gameboard.length)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*3 then
-      	gameboard.boxes('C',mirror_array(index)-(gameboard.length*2)).mirror:=true;
+      	gameboard.box('C',mirror_array(index)-(gameboard.length*2)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('C',mirror_array(index)-(gameboard.length*2)).angle:=true;
+			else
+			gameboard.box('C',mirror_array(index)-(gameboard.length*2)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*4 then
-      	gameboard.boxes('D',mirror_array(index)-(gameboard.length*3)).mirror:=true;
+      	gameboard.box('D',mirror_array(index)-(gameboard.length*3)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('D',mirror_array(index)-(gameboard.length*3)).angle:=true;
+			else
+			gameboard.box('D',mirror_array(index)-(gameboard.length*3)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*5 then
-      	gameboard.boxes('E',mirror_array(index)-(gameboard.length*4)).mirror:=true;
+      	gameboard.box('E',mirror_array(index)-(gameboard.length*4)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('E',mirror_array(index)-(gameboard.length*4)).angle:=true;
+			else
+			gameboard.box('E',mirror_array(index)-(gameboard.length*4)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*6 then
-      	gameboard.boxes('F',mirror_array(index)-(gameboard.length*5)).mirror:=true;
+      	gameboard.box('F',mirror_array(index)-(gameboard.length*5)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('F',mirror_array(index)-(gameboard.length*5)).angle:=true;
+			else
+			gameboard.box('F',mirror_array(index)-(gameboard.length*5)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*7 then
-      	gameboard.boxes('G',mirror_array(index)-(gameboard.length*6)).mirror:=true;
+      	gameboard.box('G',mirror_array(index)-(gameboard.length*6)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('G',mirror_array(index)-(gameboard.length*6)).angle:=true;
+			else
+			gameboard.box('G',mirror_array(index)-(gameboard.length*6)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*8 then
-      	gameboard.boxes('H',mirror_array(index)-(gameboard.length*7)).mirror:=true;
+      	gameboard.box('H',mirror_array(index)-(gameboard.length*7)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('H',mirror_array(index)-(gameboard.length*7)).angle:=true;
+			else
+			gameboard.box('H',mirror_array(index)-(gameboard.length*7)).angle:=false;
+			end if;
       	elsif mirror_array(index) <= gameboard.length*9 then
-      	gameboard.boxes('I',mirror_array(index)-(gameboard.length*8)).mirror:=true;
+      	gameboard.box('I',mirror_array(index)-(gameboard.length*8)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('I',mirror_array(index)-(gameboard.length*8)).angle:=true;
+			else
+			gameboard.box('I',mirror_array(index)-(gameboard.length*8)).angle:=false;
+			end if;
       	else
-      	gameboard.boxes('J',mirror_array(index)-(gameboard.length*9)).mirror:=true;
+      	gameboard.box('J',mirror_array(index)-(gameboard.length*9)).mirror:=true;
+			if Rand_Range'Image(Rand_Int.Random(seed)) > 50 then
+			gameboard.box('J',mirror_array(index)-(gameboard.length*9)).angle:=true;
+			else
+			gameboard.box('J',mirror_array(index)-(gameboard.length*9)).angle:=false;
+			end if;
       	end if;
-      	
       	end loop;
-      	
       end set_mirrors;
    end board;
