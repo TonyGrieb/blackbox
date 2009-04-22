@@ -3,9 +3,10 @@ A -g
 P NO ZX
 R nnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
 
-U board%s		board.ads		10a5416a EE PK GE
+U board%s		board.ads		078cd70a EE PK GE
 W ada%s			ada.ads			ada.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W screen%s		screen.adb		screen.ali
@@ -14,11 +15,12 @@ W windows%s		windows.adb		windows.ali
 D ada.ads		20070410115640 9c7dd3ea
 D a-inteio.ads		20070410115642 03bc737c
 D a-ioexce.ads		20070410115642 be0900a0
+D a-numeri.ads		20070410115642 1cf3e608
 D a-stream.ads		20070410115644 34aca5be
 D a-string.ads		20070410115644 87b4230b
 D a-textio.ads		20070410115644 9b97971e
 D a-tiinio.ads		20070410115644 949a7272
-D board.ads		20090422035048 160aca21
+D board.ads		20090422072908 1dd0ba49
 D interfac.ads		20070410115640 a69cad5c
 D i-cstrea.ads		20070410115644 e1e064a9
 D screen.ads		20090128000712 d4aa7b84
@@ -28,24 +30,29 @@ D s-ficobl.ads		20070410115646 1a25058f
 D s-parame.ads		20070410115646 f32e56e9
 D windows.ads		20090414001818 cd9a37a6
 X 1 ada.ads
-16K9*Ada 19e8 8|1r6 1r18 1r38
+16K9*Ada 19e8 9|1r6 1r18 1r38 1r50
 X 2 a-inteio.ads
-18K13*Integer_Text_IO[7|47] 8|1w22
-X 5 a-string.ads
-16K13*Strings 35e16 8|1w42
-X 6 a-textio.ads
-49K13*Text_IO 451e16 8|1w10
-X 8 board.ads
-4+6 board_type 8r69 10r47
-5+6 difficulty 8r43
-6k9*Board 4z6 5z6 11l5 11e10
+18K13*Integer_Text_IO[8|47] 9|1w22
+X 4 a-numeri.ads
+16K13*Numerics 32e17 9|1w54
+X 6 a-string.ads
+16K13*Strings 35e16 9|1w42
+X 7 a-textio.ads
+49K13*Text_IO 451e16 9|1w10
+X 9 board.ads
+4+6 board_type 8r69 10r47 11r73
+5+6 difficulty 8r43 11r44
+6k9*Board 4z6 5z6 12l5 12e10
 8U20*setup_board 8>32 8<54
 8*32 selection{5+6}
 8*54 gameboard{4+6}
 10U20*update_board 10>33
 10*33 gameboard{4+6}
-X 11 screen.ads
-1K12*Screen 8|1w58 11|59e14
-X 16 windows.ads
-2K9*Windows 8|1w50 16|63e12
+11U20*set_mirrors 11>32 11=55
+11*32 selection2{5+6}
+11*55 gameboard{4+6}
+X 12 screen.ads
+1K12*Screen 9|1w71 12|59e14
+X 17 windows.ads
+2K9*Windows 9|1w63 17|63e12
 
